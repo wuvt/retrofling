@@ -1,4 +1,4 @@
-name: Build Docker image and push to GitHub Package Registry
+name: Build Docker image and push to GitHub Container Registry
 on: [push]
 
 jobs:
@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Publish to GitHub Package Registry
+    - name: Publish to GitHub Container Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: wuvt/retrofling/retrofling
+        name: wuvt/retrofling
         username: wuvt
         password: ${{ secrets.GITHUB_TOKEN }}
-        registry: docker.pkg.github.com
+        registry: ghcr.io
